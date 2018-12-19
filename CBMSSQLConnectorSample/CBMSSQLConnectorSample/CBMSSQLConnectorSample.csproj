@@ -1,0 +1,94 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{32163928-849A-40A1-8DA2-D96B598DB117}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CBMSSQLConnectorSample</RootNamespace>
+    <AssemblyName>CBMSSQLConnectorSample</AssemblyName>
+    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CB.Connector">
+      <HintPath>..\..\..\..\..\..\..\Source\MediaGateway\Development\BranchMain_APIRefactor\Bin\Debug\MgServerService\CB.Connector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.ConnectionInfo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Scripting.11.0.2100.61\lib\Microsoft.SqlServer.ConnectionInfo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Management.Sdk.Sfc, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Scripting.11.0.2100.61\lib\Microsoft.SqlServer.Management.Sdk.Sfc.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Smo, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.SqlServer.Scripting.11.0.2100.61\lib\Microsoft.SqlServer.Smo.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.SqlEnum, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Command\Builder\Constants.cs" />
+    <Compile Include="Command\Builder\SqlCommandBuilder.cs" />
+    <Compile Include="Command\Handlers\AggregateHandler.cs" />
+    <Compile Include="Command\Handlers\DeleteSinkHandler.cs" />
+    <Compile Include="Command\Handlers\DistinctHandler.cs" />
+    <Compile Include="Command\Handlers\ExecuteSinkHandler.cs" />
+    <Compile Include="Command\Handlers\FullJoinHandler.cs" />
+    <Compile Include="Command\Handlers\HavingHandler.cs" />
+    <Compile Include="Command\Handlers\IHandler.cs" />
+    <Compile Include="Command\Handlers\InnerJoinHandler.cs" />
+    <Compile Include="Command\Handlers\InsertSinkHandler.cs" />
+    <Compile Include="Command\Handlers\LeftJoinHandler.cs" />
+    <Compile Include="Command\Handlers\LimitHandler.cs" />
+    <Compile Include="Command\Handlers\OrderByHandler.cs" />
+    <Compile Include="Command\Handlers\RightJoinHandler.cs" />
+    <Compile Include="Command\Handlers\SelectSinkHandler.cs" />
+    <Compile Include="Command\Handlers\TableFunctionSourceHandler.cs" />
+    <Compile Include="Command\Handlers\TableSourceHandler.cs" />
+    <Compile Include="Command\Handlers\UpdateSinkHandler.cs" />
+    <Compile Include="Command\Handlers\WhereHandler.cs" />
+    <Compile Include="Command\Helpers\SqlDataLoader.cs" />
+    <Compile Include="Command\Translator\SqlTranslator.cs" />
+    <Compile Include="Command\Visitors\DataHandlerVisitor.cs" />
+    <Compile Include="Command\Visitors\IVisitor.cs" />
+    <Compile Include="Connector\Connector.cs" />
+    <Compile Include="Connector\ContextSqlCommandInfo.cs" />
+    <Compile Include="Connector\ExecutionSession.cs" />
+    <Compile Include="Connector\HandlerFactory.cs" />
+    <Compile Include="Connector\Properties.cs" />
+    <Compile Include="Metadata\SqlMetaDataLoader.cs" />
+    <Compile Include="Metadata\TypeResolver.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="ReadMe.md" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
