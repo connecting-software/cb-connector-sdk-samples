@@ -7,4 +7,4 @@ This project is for CB Connector SDK samples.
 To report bugs and require features, please use our [issue_tracker](https://github.com/connecting-software/cb-connector-sdk-samples/issues).
 
 ### Stack Overflow
-For more questions about CB Connector SDK, please tag questions with [`connect-bridge`]
+For more questions about CB Connector SDK, please tag questions with `connect-bridge`.
